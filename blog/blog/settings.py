@@ -18,6 +18,7 @@ import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 sys.path.insert(0, 'apps')
+sys.path.insert(0, 'extra_apps')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
     'users.apps.UsersConfig',
     'article.apps.ArticleConfig',
     'music.apps.MusicConfig',
@@ -52,7 +54,10 @@ INSTALLED_APPS = [
     "rest_framework",
     'django_filters',
     "corsheaders",  # 解决跨域
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'xadmin',
+    'crispy_forms',
+    'reversion',
 ]
 
 # 解决跨域
@@ -141,7 +146,6 @@ USE_TZ = False  # 默认是Ture，时间是utc时间，由于我们要用本地�
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/blog/static/'
 MEDIA_URL = "/media/"
 STATIC_URL_1 = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
@@ -151,7 +155,7 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'users.utils.jwt_response_payload_handler',
+    # 'JWT_RESPONSE_PAYLOAD_HANDLER': 'users.utils.jwt_response_payload_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_AUTH_HEADER_PREFIX': 'Token',
 

@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin
+import xadmin
 from django.views.generic import TemplateView
 from blog.settings import MEDIA_ROOT
 from django.conf.urls import url, include
@@ -46,7 +47,7 @@ urlpatterns = [
   url('^', include(router.urls)),
 
   url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-  url(r'^v1/api/login/', obtain_jwt_token),
+  url(r'^v1/api/login/', obtain_jwt_token, name="login"),
   url(r'v1/api/code/', get_valid_img),
   url(r'v1/api/upload/', upload_pic),
   url(r'v1/api/get_music_list/', get_music_list),

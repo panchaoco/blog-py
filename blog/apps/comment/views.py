@@ -34,7 +34,6 @@ class CommentViewGet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
 class CommentViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Comment.objects.all()
-    authentication_classes = (JSONWebTokenAuthentication, )
     serializer_class = CommentSerializers
 
     def create(self, request, *args, **kwargs):

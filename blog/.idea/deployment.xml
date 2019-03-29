@@ -2,17 +2,10 @@
 <project version="4">
   <component name="PublishConfigData" autoUpload="Always" serverName="blog">
     <serverData>
-      <paths name="Beauty">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/blog" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="blog">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/blog" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/blog" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
